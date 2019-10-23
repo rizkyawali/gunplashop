@@ -10,14 +10,14 @@
     <form action="{{route('users.index')}}">
         <div class="row">
             <div class="col-md-6">
-                <input value="{{Request::get('keyword')}}" name="keyword" class="form-control" type="text" placeholder="Masukan email untuk filter..."/>
+                <input value="{{Request::get('keyword')}}" name="keyword" class="form-control" type="text" placeholder="Search E-mail"/>
             </div>
             <div class="col-md-6">
                 <input {{ Request::get('status') == 'ACTIVE' ? 'checked' : '' }} type="radio" value="ACTIVE" name="status" class="form-control" id="active" >
                 <label for="active">Active</label>
                 <input {{ Request::get('status') == 'INACTIVE' ? 'checked' : '' }} value="INACTIVE" name="status" type="radio" class="form-control" id="inactive">
                 <label for="inactive">Inactive</label>
-                <input type="submit" value="Filter" class="btn btn-primary">
+                <input type="submit" value="Search" class="btn btn-primary">
             </div>
         </div>
     </form>
@@ -30,7 +30,7 @@
     <br>
     <div class="row">
         <div class="col-md-12 text-left">
-            <a href="{{route('users.create')}}" class="btn btn-primary">Create user</a>
+            <a href="{{route('users.create')}}" class="btn btn-primary">Add User</a>
         </div>
     </div>
     <br>
