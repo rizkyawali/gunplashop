@@ -16,11 +16,19 @@ class UserController extends Controller
         //
         $users = \App\User::paginate(10);
         $filterKeyword = $request->get('keyword');
+        $status = $request->get('status');
 
         if ($filterKeyword) {
-            # code...
-            $users = \App\User::where('email', 'LIKE', "%filterKeyword%")->paginate(10);
+            if ($status) {
+                $users = \App\User::where('email', 'LIKE', "%$filterKeyword%")
+                    ->where('status', $status)
+                    ->paginate(10);
+            } else {
+                $users = \App\User::where('email', 'LIKE', "%$filterKeyword%")
+                    ->paginate(10);
+            }
         }
+
         return view('users.index', ['users' => $users]);
     }
 
@@ -103,6 +111,7 @@ class UserController extends Controller
         $user->roles = json_encode($request->get('roles'));
         $user->address = $request->get('address');
         $user->phone = $request->get('phone');
+        $user->status = $request->get('status');
 
         if ($request->file('avatar')) {
             # code...

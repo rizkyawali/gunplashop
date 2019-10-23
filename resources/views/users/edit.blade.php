@@ -25,9 +25,10 @@
 
             <label for="status">Status</label>
             <br>
-            <input {{ $user->status == "ACTIVE" ? "checked" : "" }} type="radio" class="form-control" value="ACTIVE" name="status" id="active">
+            <input {{$user->status == "ACTIVE" ? "checked" : ""}} value="ACTIVE" type="radio" class="form-control" id="active" name="status">
             <label for="active">Active</label>
-            <input {{ $user->status == "INACTIVE" ? "checked" : "" }} type="radio" class="form-control" value="INACTIVE" name="status" id="inactive">
+
+            <input {{$user->status == "INACTIVE" ? "checked" : ""}} value="INACTIVE" type="radio" class="form-control" id="inactive" name="status">
             <label for="inactive">Inactive</label>
             <br><br>
 
