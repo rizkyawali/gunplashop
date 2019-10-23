@@ -12,5 +12,15 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
+
+Auth::routes();
+Route::match(['get', 'post'], '/register', function () {
+    return redirect("/login");
+})->name("register");
+
+// Users Routes
+Route::resource('users', 'UserController');
+
+Route::get('/home', 'HomeController@index')->name('home');
